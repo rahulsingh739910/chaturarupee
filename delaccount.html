@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0078FF">
+<title>Delete Account &middot; Chatura Rupee</title>
+<style>
+  :root{
+    --brand:#0078FF;
+    --brand-deep:#0057D0;
+    --brand-tint:#EAF3FF;
+    --ink:#0F1B2D;
+    --ink-2:#3C4E66;
+    --muted:#6A7C93;
+    --line:#E7EDF5;
+    --bg:#F5F8FC;
+    --card:#FFFFFF;
+    --danger:#C8401F;
+    --danger-deep:#A9311B;
+    color-scheme:light;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+    background:var(--bg);color:var(--ink);
+    font-size:15px;line-height:1.65;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:720px;margin:0 auto;
+    padding:14px 16px calc(36px + env(safe-area-inset-bottom));
+  }
+
+  .ic{
+    width:18px;height:18px;flex:none;
+    fill:none;stroke:currentColor;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+
+  /* ---------- header ---------- */
+  .brand{display:flex;align-items:center;gap:10px;margin:2px 2px 16px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:11px;flex:none;
+    background:linear-gradient(135deg,#0A82FF,var(--brand-deep));
+    display:grid;place-items:center;
+    box-shadow:0 4px 10px -3px rgba(0,87,208,.55);
+  }
+  .brand-mark .ic{width:17px;height:17px;fill:#fff;stroke:none;}
+  .brand-name{font-size:16px;font-weight:700;letter-spacing:-.2px;}
+  .brand-sub{font-size:11.5px;color:var(--muted);line-height:1.3;}
+  .brand-pill{
+    margin-left:auto;font-size:11px;font-weight:600;color:var(--brand);
+    background:var(--brand-tint);border-radius:999px;padding:4px 11px;
+  }
+
+  /* ---------- title ---------- */
+  .doc-head{
+    background:linear-gradient(135deg,#0A82FF,var(--brand-deep));
+    border-radius:20px;padding:20px;color:#fff;
+    box-shadow:0 12px 26px -12px rgba(0,87,208,.65);
+  }
+  .doc-head h1{font-size:24px;font-weight:700;letter-spacing:-.4px;line-height:1.25;}
+  .doc-head p{font-size:13px;opacity:.9;margin-top:7px;line-height:1.55;}
+  .doc-meta{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;
+    border-top:1px solid rgba(255,255,255,.22);
+  }
+  .doc-meta span{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:500;
+    background:rgba(255,255,255,.17);border-radius:999px;padding:5px 11px;
+  }
+  .doc-meta .ic{width:13px;height:13px;stroke-width:2.3;}
+
+  /* ---------- key notice ---------- */
+  .keynote{
+    margin-top:14px;padding:16px;border-radius:16px;
+    background:var(--brand-tint);border:1px solid #CFE3FF;
+  }
+  .keynote-title{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;color:var(--brand-deep);
+    text-transform:uppercase;letter-spacing:.6px;
+  }
+  .keynote-title .ic{width:15px;height:15px;stroke-width:2.4;}
+  .keynote p{font-size:14px;color:var(--ink-2);margin-top:9px;}
+  .keynote strong{color:var(--ink);font-weight:600;}
+  .keynote a{color:var(--brand-deep);font-weight:600;overflow-wrap:anywhere;}
+
+  /* ---------- summary ---------- */
+  .summary{
+    margin-top:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(15,27,45,.04);
+  }
+  .summary h2{
+    font-size:15px;font-weight:700;letter-spacing:-.2px;
+    display:flex;align-items:center;gap:9px;margin-bottom:10px;
+  }
+  .summary h2 .ic{color:var(--brand);}
+  .summary ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .summary li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-2);}
+  .summary li .ic{width:16px;height:16px;color:var(--brand);margin-top:3px;}
+  .summary li .ic.warn{color:var(--danger);}
+
+  /* ---------- quick path (Mine > Settings > ...) ---------- */
+  .path{
+    display:flex;flex-wrap:wrap;align-items:center;gap:7px;
+    margin-top:12px;padding:12px 13px;border-radius:12px;
+    background:var(--bg);border:1px solid var(--line);
+    font-size:13px;font-weight:600;
+  }
+  .path b{
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:4px 11px;color:var(--ink);font-weight:600;
+  }
+  .path .sep{color:var(--muted);font-weight:400;}
+  .path .end{color:var(--danger-deep);}
+
+  /* ---------- sections ---------- */
+  main{counter-reset:sec;}
+  section.sec{
+    counter-increment:sec;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:17px 16px;margin-top:14px;
+    box-shadow:0 1px 2px rgba(15,27,45,.04);
+    scroll-margin-top:12px;
+  }
+  section.sec > h2{
+    font-size:16px;font-weight:700;letter-spacing:-.25px;line-height:1.35;
+    display:flex;gap:10px;align-items:baseline;margin-bottom:11px;
+  }
+  section.sec > h2::before{
+    content:counter(sec);
+    flex:none;min-width:24px;height:24px;border-radius:8px;
+    background:var(--brand-tint);color:var(--brand);
+    font-size:12.5px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-variant-numeric:tabular-nums;
+  }
+  section.sec h3{
+    font-size:14.5px;font-weight:600;color:var(--ink);
+    margin:15px 0 6px;display:flex;align-items:center;gap:8px;
+  }
+  section.sec h3 .ic{width:16px;height:16px;color:var(--brand);}
+  section.sec p{font-size:14.5px;color:var(--ink-2);margin-top:9px;}
+  section.sec p:first-of-type{margin-top:0;}
+  section.sec strong{color:var(--ink);font-weight:600;}
+  section.sec a{color:var(--brand-deep);font-weight:500;overflow-wrap:anywhere;}
+  section.sec ul,section.sec ol{
+    margin:9px 0 0;padding-left:20px;
+    font-size:14.5px;color:var(--ink-2);
+  }
+  section.sec li{margin-top:6px;}
+  section.sec li::marker{color:var(--brand);}
+  section.sec ul.tags{list-style:none;padding-left:0;}
+  section.sec ul.tags li{display:flex;gap:9px;align-items:flex-start;}
+  section.sec ul.tags .ic{width:15px;height:15px;color:var(--brand);margin-top:4px;}
+  section.sec ul.tags.warn .ic{color:var(--danger);}
+
+  /* ---------- tap target (names of buttons in the app) ---------- */
+  code.tap{
+    font-family:inherit;font-weight:600;color:var(--brand-deep);
+    background:var(--brand-tint);border:1px solid #CFE3FF;border-radius:7px;
+    padding:1px 7px;font-size:13.5px;white-space:nowrap;
+  }
+
+  /* ---------- numbered steps ---------- */
+  ol.steps{
+    list-style:none;padding-left:0;margin-top:12px;
+    counter-reset:step;display:flex;flex-direction:column;gap:10px;
+  }
+  ol.steps > li{
+    counter-increment:step;position:relative;
+    padding:13px 14px 13px 50px;border-radius:14px;
+    background:linear-gradient(180deg,#F7FBFF,#EDF5FF);
+    border:1px solid #DBE9FC;
+    font-size:14.5px;color:var(--ink-2);
+  }
+  ol.steps > li::before{
+    content:counter(step);
+    position:absolute;left:14px;top:13px;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--brand);color:#fff;
+    font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;
+    display:grid;place-items:center;
+    box-shadow:0 3px 8px -3px rgba(0,87,208,.75);
+  }
+  ol.steps > li .st{
+    display:block;font-size:14.5px;font-weight:600;color:var(--ink);
+    margin-bottom:3px;
+  }
+  ol.steps > li .hint{
+    display:block;font-size:13px;color:var(--muted);margin-top:6px;
+  }
+
+  .callout{
+    margin-top:12px;padding:13px 14px;border-radius:12px;
+    background:linear-gradient(180deg,#F7FBFF,#EDF5FF);
+    border:1px solid #DBE9FC;
+    font-size:14px;color:var(--ink-2);
+  }
+  .callout b{color:var(--ink);}
+  .callout .hl{
+    display:flex;gap:9px;align-items:flex-start;
+  }
+  .callout .ic{width:16px;height:16px;color:var(--brand);margin-top:2px;}
+  .callout.warn{
+    background:linear-gradient(180deg,#FFF8F6,#FFEFEA);
+    border-color:#F6D6CB;
+  }
+  .callout.warn b{color:var(--danger-deep);}
+  .callout.warn .ic{color:var(--danger);}
+
+  table.facts{
+    width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;
+  }
+  table.facts th,table.facts td{
+    text-align:left;vertical-align:top;padding:9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  table.facts tr:last-child th,table.facts tr:last-child td{border-bottom:0;}
+  table.facts th{
+    font-weight:600;color:var(--ink);width:40%;padding-right:12px;
+  }
+  table.facts td{color:var(--ink-2);}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:18px;padding:0 4px;
+    font-size:12.5px;line-height:1.65;color:var(--muted);text-align:center;
+  }
+  .foot a{color:var(--brand-deep);}
+  .foot .eff{
+    display:inline-block;margin-top:8px;font-weight:600;color:var(--ink-2);
+  }
+
+  @media (min-width:560px){
+    .doc-head{padding:24px;}
+    .doc-head h1{font-size:27px;}
+    section.sec{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- icon sprite: no network, no font files -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M14 10h5M14 14h5M5 16c.8-1.2 2-1.8 3.5-1.8S11.2 14.8 12 16"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="3"/><line x1="1" y1="10" x2="23" y2="10"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 14 22 7"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
+  <symbol id="i-user-check" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></symbol>
+  <symbol id="i-kid" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+</svg>
+
+<main class="page">
+
+  <header class="brand">
+    <div class="brand-mark"><svg class="ic" aria-hidden="true"><use href="#i-zap" xlink:href="#i-zap"></use></svg></div>
+    <div>
+      <div class="brand-name">Chatura Rupee</div>
+      <div class="brand-sub">Credit Line App</div>
+    </div>
+    <span class="brand-pill">Account</span>
+  </header>
+
+  <div class="doc-head">
+    <h1>Delete Your Account</h1>
+    <p>This guide explains how to delete your Chatura Rupee account from inside the app, what data is deleted, and how to ask us to delete your account if you can no longer sign in.</p>
+    <div class="doc-meta">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-calendar" xlink:href="#i-calendar"></use></svg>Effective 29 September 2026</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-pin" xlink:href="#i-pin"></use></svg>India</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-phone" xlink:href="#i-phone"></use></svg>Chatura Rupee for Android</span>
+    </div>
+  </div>
+
+  <div class="keynote">
+    <div class="keynote-title">
+      <svg class="ic" aria-hidden="true"><use href="#i-trash" xlink:href="#i-trash"></use></svg>
+      Deleting your account
+    </div>
+    <p>
+      You can delete your account and its data <strong>yourself, inside the app, in a few taps</strong> —
+      you do not need to write to us first. Deletion is <strong>permanent</strong>: your account is closed,
+      your personal and KYC data and your loan records are deleted, and <strong>they cannot be restored</strong>.
+    </p>
+    <p>
+      If you still have a loan that is being repaid, <strong>your deletion request may not go through</strong>.
+      Clear the outstanding amount first — see <em>Before you start</em> below.
+    </p>
+    <p>
+      If you can no longer sign in, you can still have your account deleted by writing to
+      <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a> from the mobile number
+      registered on the account.
+    </p>
+  </div>
+
+  <div class="summary">
+    <h2><svg class="ic" aria-hidden="true"><use href="#i-list" xlink:href="#i-list"></use></svg>The short version</h2>
+    <ul>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>Sign in, then go to <strong>Mine &rsaquo; Settings &rsaquo; Delete Account</strong> and confirm the dialog. That is the whole process.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>Deleting your account is permanent — <strong>it cannot be undone or restored</strong>, so do it only if you are sure.</span></li>
+      <li><svg class="ic warn" aria-hidden="true"><use href="#i-alert" xlink:href="#i-alert"></use></svg><span>If you have a loan that is still being repaid, <strong>deletion may not succeed</strong> — settle the outstanding amount first.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>As soon as you confirm, we sign you out, clear the data stored on your device, and return you to the sign-in screen.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>You can also request deletion by email. Uninstalling the app alone does <strong>not</strong> delete the data you already sent us.</span></li>
+    </ul>
+  </div>
+
+  <section class="sec" id="s1">
+    <h2>Before you start</h2>
+    <p>To delete your account from inside the app you need to be able to sign in to it:</p>
+    <ul>
+      <li><strong>Sign in first</strong> — the option is only available to a signed-in user. If you cannot receive the verification code on your registered mobile number, use the email route in section&nbsp;5.</li>
+      <li><strong>No loan still being repaid</strong> — if you have a loan that is not fully repaid, or an instalment that is due, <strong>your deletion may not go through</strong>. Repay the outstanding amount first, then delete your account. If you are not sure whether anything is outstanding, email us before you start.</li>
+      <li><strong>Be sure</strong> — once your account is deleted, your credit line, your KYC verification and your history are gone. If you want to use the app again later, you will have to register and complete KYC from the beginning.</li>
+      <li><strong>Keep records you need</strong> — if you want a copy of your repayment history, save or screenshot it before you delete your account.</li>
+    </ul>
+    <div class="callout warn">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert" xlink:href="#i-alert"></use></svg>
+        <span>Deleting your account <b>does not cancel a loan or the amount you still owe</b>, and it does not remove an instalment that is due. If a repayment is outstanding when you tap <b>Delete</b>, the deletion may be refused and your account will remain registered. Repay first.</span>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-info" xlink:href="#i-info"></use></svg>
+        <span>You can also <b>stop further collection from your device</b> at any time by uninstalling the app — but uninstalling does not delete information that has already been sent to us. To have that deleted, follow the steps below or email us.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s2">
+    <h2>How to delete your account in the app</h2>
+    <p>
+      Open the app while you are signed in, then follow these five steps. The whole thing takes less than a minute.
+    </p>
+    <div class="path" aria-label="Path to delete your account">
+      <b>Mine</b><span class="sep">&rsaquo;</span>
+      <b>Settings</b><span class="sep">&rsaquo;</span>
+      <b>Delete Account</b><span class="sep">&rsaquo;</span>
+      <b class="end">Delete</b>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="st">Open the app and sign in</span>
+        Launch Chatura Rupee and sign in with your registered mobile number, if you are not already signed in.
+        <span class="hint">You will land on the Home screen.</span>
+      </li>
+      <li>
+        <span class="st">Tap the <code class="tap">Mine</code> tab</span>
+        In the bottom navigation bar, tap <strong>Mine</strong> — the third tab, on the right.
+        <span class="hint">Your profile screen opens, showing your registered mobile number.</span>
+      </li>
+      <li>
+        <span class="st">Tap <code class="tap">Settings</code></span>
+        On the Mine screen, tap <strong>Settings</strong>, the last item in the list.
+        <span class="hint">The Settings screen opens. It also contains Privacy Policy and Logout.</span>
+      </li>
+      <li>
+        <span class="st">Tap <code class="tap">Delete Account</code></span>
+        In Settings, tap the <strong>Delete Account</strong> item at the bottom of the list.
+        <span class="hint">A confirmation dialog appears. Nothing has been deleted yet.</span>
+      </li>
+      <li>
+        <span class="st">Tap <code class="tap">Delete</code> in the dialog</span>
+        The dialog asks: <em>&ldquo;Are you sure you want to delete your account and clear all your account data?&rdquo;</em>
+        Tap <strong>Delete</strong> to confirm.
+        <span class="hint">To stop instead, tap Cancel — the dialog closes and nothing is deleted.</span>
+      </li>
+    </ol>
+    <div class="callout warn">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert" xlink:href="#i-alert"></use></svg>
+        <span>This is the point of no return. Once you tap <b>Delete</b>, your account and its data are deleted and <b>cannot be recovered</b>.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s3">
+    <h2>What happens after you confirm</h2>
+    <p>When you tap <strong>Delete</strong> in the dialog, the app:</p>
+    <ul class="tags">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-trash" xlink:href="#i-trash"></use></svg><span>Sends the deletion request to our server, where your account and its personal data are deleted;</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-refresh" xlink:href="#i-refresh"></use></svg><span>Signs you out and clears the data the app stored on your device;</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>Shows the message <em>&ldquo;All your account data has been cleared&rdquo;</em> and returns you to the sign-in screen.</span></li>
+    </ul>
+    <p>
+      Your account can no longer be used to sign in. If you want to use the app again, you can register
+      with the same mobile number and complete KYC as a new user.
+    </p>
+    <div class="callout warn">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert" xlink:href="#i-alert"></use></svg>
+        <span>If a loan is still being repaid when you tap <b>Delete</b>, the app will still sign you out and clear the data on your device, but <b>the deletion may not be completed on our side</b>. You will notice this if you can still sign in with the same mobile number and your account details are still there. In that case, repay the outstanding amount and delete the account again, or contact us.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s4">
+    <h2>What is deleted</h2>
+    <p>
+      When your account is deleted, the following data is deleted from our systems:
+    </p>
+    <table class="facts">
+      <tr>
+        <th>Account and login</th>
+        <td>Your registered mobile number and the records used to sign you in.</td>
+      </tr>
+      <tr>
+        <th>Personal and financial profile</th>
+        <td>Education, type of work, work experience, profession, job level, monthly income, living arrangement, marital status and number of children.</td>
+      </tr>
+      <tr>
+        <th>Identity (KYC) information</th>
+        <td>Your full name, your PAN card number and the photograph of your PAN card.</td>
+      </tr>
+      <tr>
+        <th>Face verification</th>
+        <td>The live photograph taken through the in-app camera during KYC.</td>
+      </tr>
+      <tr>
+        <th>References you chose</th>
+        <td>The names and phone numbers of the contacts you selected.</td>
+      </tr>
+      <tr>
+        <th>Bank account details</th>
+        <td>The bank card or account number used to disburse your loan and collect repayment.</td>
+      </tr>
+      <tr>
+        <th>Credit line, loans and repayments</th>
+        <td>Your credit limit, your loan and repayment history, and any repayment reminders.</td>
+      </tr>
+      <tr>
+        <th>App usage and device data</th>
+        <td>Your activity in the app and the device and risk-assessment data linked to your account.</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="sec" id="s5">
+    <h2>If you cannot sign in</h2>
+    <p>
+      If you have lost access to your registered mobile number, or you cannot sign in for any other reason,
+      you can still have your account deleted. Write to
+      <a href="mailto:rahulsingh739910@gmail.com?subject=Delete%20my%20account">rahulsingh739910@gmail.com</a>
+      with the subject <em>Delete my account</em>, and include:
+    </p>
+    <ul>
+      <li>the mobile number registered on the account;</li>
+      <li>the full name you used for your KYC.</li>
+    </ul>
+    <p>
+      We will verify that the account is yours, then delete the account and its data. We aim to complete
+      every verified deletion request within 30 days.
+    </p>
+    <p>
+      If a loan is still being repaid on the account, we may not be able to complete the deletion until the
+      outstanding amount is settled — if that is the case, we will tell you and explain what is still due.
+    </p>
+    <div class="callout">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-mail" xlink:href="#i-mail"></use></svg>
+        <span>Please do not send us your PAN card photograph, your face photograph or your bank details by email — we do not need them to process a deletion request.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s6">
+    <h2>Contact us</h2>
+    <p>
+      If anything about deleting your account is unclear, or if you want to know what we hold about you
+      before you delete it, contact the Service Provider:
+    </p>
+    <ul>
+      <li><strong>Service Provider:</strong> Ram singh — Chatura Rupee: Credit Line App</li>
+      <li><strong>Email:</strong> <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <p class="foot">
+    This account deletion guide applies to the Chatura Rupee: Credit Line App for Android.<br>
+    See also our <a href="privacy.html">Privacy Policy</a>.<br>
+    <span class="eff">Effective as of 29 September 2026</span>
+  </p>
+
+</main>
+
+</body>
+</html>
