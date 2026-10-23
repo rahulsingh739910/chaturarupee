@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0078FF">
+<title>Privacy Policy &middot; Chatura Rupee</title>
+<style>
+  :root{
+    --brand:#0078FF;
+    --brand-deep:#0057D0;
+    --brand-tint:#EAF3FF;
+    --ink:#0F1B2D;
+    --ink-2:#3C4E66;
+    --muted:#6A7C93;
+    --line:#E7EDF5;
+    --bg:#F5F8FC;
+    --card:#FFFFFF;
+    color-scheme:light;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+    background:var(--bg);color:var(--ink);
+    font-size:15px;line-height:1.65;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:720px;margin:0 auto;
+    padding:14px 16px calc(36px + env(safe-area-inset-bottom));
+  }
+
+  .ic{
+    width:18px;height:18px;flex:none;
+    fill:none;stroke:currentColor;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+
+  /* ---------- header ---------- */
+  .brand{display:flex;align-items:center;gap:10px;margin:2px 2px 16px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:11px;flex:none;
+    background:linear-gradient(135deg,#0A82FF,var(--brand-deep));
+    display:grid;place-items:center;
+    box-shadow:0 4px 10px -3px rgba(0,87,208,.55);
+  }
+  .brand-mark .ic{width:17px;height:17px;fill:#fff;stroke:none;}
+  .brand-name{font-size:16px;font-weight:700;letter-spacing:-.2px;}
+  .brand-sub{font-size:11.5px;color:var(--muted);line-height:1.3;}
+  .brand-pill{
+    margin-left:auto;font-size:11px;font-weight:600;color:var(--brand);
+    background:var(--brand-tint);border-radius:999px;padding:4px 11px;
+  }
+
+  /* ---------- title ---------- */
+  .doc-head{
+    background:linear-gradient(135deg,#0A82FF,var(--brand-deep));
+    border-radius:20px;padding:20px;color:#fff;
+    box-shadow:0 12px 26px -12px rgba(0,87,208,.65);
+  }
+  .doc-head h1{font-size:24px;font-weight:700;letter-spacing:-.4px;line-height:1.25;}
+  .doc-head p{font-size:13px;opacity:.9;margin-top:7px;line-height:1.55;}
+  .doc-meta{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;
+    border-top:1px solid rgba(255,255,255,.22);
+  }
+  .doc-meta span{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:500;
+    background:rgba(255,255,255,.17);border-radius:999px;padding:5px 11px;
+  }
+  .doc-meta .ic{width:13px;height:13px;stroke-width:2.3;}
+
+  /* ---------- key notice ---------- */
+  .keynote{
+    margin-top:14px;padding:16px;border-radius:16px;
+    background:var(--brand-tint);border:1px solid #CFE3FF;
+  }
+  .keynote-title{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;color:var(--brand-deep);
+    text-transform:uppercase;letter-spacing:.6px;
+  }
+  .keynote-title .ic{width:15px;height:15px;stroke-width:2.4;}
+  .keynote p{font-size:14px;color:var(--ink-2);margin-top:9px;}
+  .keynote strong{color:var(--ink);font-weight:600;}
+  .keynote a{color:var(--brand-deep);font-weight:600;overflow-wrap:anywhere;}
+
+  /* ---------- summary ---------- */
+  .summary{
+    margin-top:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(15,27,45,.04);
+  }
+  .summary h2{
+    font-size:15px;font-weight:700;letter-spacing:-.2px;
+    display:flex;align-items:center;gap:9px;margin-bottom:10px;
+  }
+  .summary h2 .ic{color:var(--brand);}
+  .summary ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .summary li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-2);}
+  .summary li .ic{width:16px;height:16px;color:var(--brand);margin-top:3px;}
+
+  /* ---------- table of contents ---------- */
+  details.toc{
+    margin-top:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(15,27,45,.04);
+  }
+  details.toc > summary{
+    padding:14px 16px;font-size:14.5px;font-weight:600;cursor:pointer;
+    display:flex;align-items:center;gap:9px;list-style:none;
+  }
+  details.toc > summary::-webkit-details-marker{display:none;}
+  details.toc > summary .ic{color:var(--brand);}
+  details.toc > summary::after{
+    content:"";margin-left:auto;width:7px;height:7px;
+    border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+    transform:rotate(45deg) translateY(-2px);transition:transform .2s;
+  }
+  details[open].toc > summary::after{transform:rotate(-135deg) translateY(-2px);}
+  .toc ol{
+    list-style:none;padding:0 16px 14px;border-top:1px solid var(--line);
+    padding-top:12px;counter-reset:toc;
+  }
+  .toc li{counter-increment:toc;font-size:14px;padding:4px 0;}
+  .toc li a{
+    color:var(--ink-2);text-decoration:none;display:flex;gap:9px;align-items:baseline;
+  }
+  .toc li a::before{
+    content:counter(toc);color:var(--brand);font-weight:600;
+    font-variant-numeric:tabular-nums;min-width:18px;font-size:12.5px;
+  }
+
+  /* ---------- sections ---------- */
+  main{counter-reset:sec;}
+  section.sec{
+    counter-increment:sec;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:17px 16px;margin-top:14px;
+    box-shadow:0 1px 2px rgba(15,27,45,.04);
+    scroll-margin-top:12px;
+  }
+  section.sec > h2{
+    font-size:16px;font-weight:700;letter-spacing:-.25px;line-height:1.35;
+    display:flex;gap:10px;align-items:baseline;margin-bottom:11px;
+  }
+  section.sec > h2::before{
+    content:counter(sec);
+    flex:none;min-width:24px;height:24px;border-radius:8px;
+    background:var(--brand-tint);color:var(--brand);
+    font-size:12.5px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-variant-numeric:tabular-nums;
+  }
+  section.sec h3{
+    font-size:14.5px;font-weight:600;color:var(--ink);
+    margin:15px 0 6px;display:flex;align-items:center;gap:8px;
+  }
+  section.sec h3 .ic{width:16px;height:16px;color:var(--brand);}
+  section.sec p{font-size:14.5px;color:var(--ink-2);margin-top:9px;}
+  section.sec p:first-of-type{margin-top:0;}
+  section.sec strong{color:var(--ink);font-weight:600;}
+  section.sec a{color:var(--brand-deep);font-weight:500;overflow-wrap:anywhere;}
+  section.sec ul,section.sec ol{
+    margin:9px 0 0;padding-left:20px;
+    font-size:14.5px;color:var(--ink-2);
+  }
+  section.sec li{margin-top:6px;}
+  section.sec li::marker{color:var(--brand);}
+  section.sec ul.tags{list-style:none;padding-left:0;}
+  section.sec ul.tags li{display:flex;gap:9px;align-items:flex-start;}
+  section.sec ul.tags .ic{width:15px;height:15px;color:var(--brand);margin-top:4px;}
+
+  .callout{
+    margin-top:12px;padding:13px 14px;border-radius:12px;
+    background:linear-gradient(180deg,#F7FBFF,#EDF5FF);
+    border:1px solid #DBE9FC;
+    font-size:14px;color:var(--ink-2);
+  }
+  .callout b{color:var(--ink);}
+  .callout .hl{
+    display:flex;gap:9px;align-items:flex-start;
+  }
+  .callout .ic{width:16px;height:16px;color:var(--brand);margin-top:2px;}
+
+  table.facts{
+    width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;
+  }
+  table.facts th,table.facts td{
+    text-align:left;vertical-align:top;padding:9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  table.facts tr:last-child th,table.facts tr:last-child td{border-bottom:0;}
+  table.facts th{
+    font-weight:600;color:var(--ink);width:40%;padding-right:12px;
+  }
+  table.facts td{color:var(--ink-2);}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:18px;padding:0 4px;
+    font-size:12.5px;line-height:1.65;color:var(--muted);text-align:center;
+  }
+  .foot a{color:var(--brand-deep);}
+  .foot .eff{
+    display:inline-block;margin-top:8px;font-weight:600;color:var(--ink-2);
+  }
+
+  @media (min-width:560px){
+    .doc-head{padding:24px;}
+    .doc-head h1{font-size:27px;}
+    section.sec{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- icon sprite: no network, no font files -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M14 10h5M14 14h5M5 16c.8-1.2 2-1.8 3.5-1.8S11.2 14.8 12 16"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="3"/><line x1="1" y1="10" x2="23" y2="10"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 14 22 7"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
+  <symbol id="i-user-check" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></symbol>
+  <symbol id="i-kid" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+</svg>
+
+<main class="page">
+
+  <header class="brand">
+    <div class="brand-mark"><svg class="ic" aria-hidden="true"><use href="#i-zap" xlink:href="#i-zap"></use></svg></div>
+    <div>
+      <div class="brand-name">Chatura Rupee</div>
+      <div class="brand-sub">Credit Line App</div>
+    </div>
+    <span class="brand-pill">Privacy</span>
+  </header>
+
+  <div class="doc-head">
+    <h1>Privacy Policy</h1>
+    <p>This policy explains what information the Chatura Rupee: Credit Line App collects, why we collect it, how it is protected, and the choices you have.</p>
+    <div class="doc-meta">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-calendar" xlink:href="#i-calendar"></use></svg>Effective 28 September 2026</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-pin" xlink:href="#i-pin"></use></svg>India</span>
+    </div>
+  </div>
+
+  <div class="keynote">
+    <div class="keynote-title">
+      <svg class="ic" aria-hidden="true"><use href="#i-lock" xlink:href="#i-lock"></use></svg>
+      How your data is handled
+    </div>
+    <p>
+      The information you submit through the app is <strong>encrypted and uploaded to our own server at
+      <a href="https://c5yaar.com" target="_blank" rel="noopener noreferrer">https://c5yaar.com</a></strong>
+      (AES-encrypted content, sent over an encrypted HTTPS connection).
+      It is used to calculate your credit limit and for related services only.
+      <strong>We do not sell your personal data, and we do not share it with third parties</strong> for their own purposes.
+    </p>
+    <p>
+      You can request a copy of your data or ask us to delete it at any time by writing to
+      <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a>.
+    </p>
+  </div>
+
+  <div class="summary">
+    <h2><svg class="ic" aria-hidden="true"><use href="#i-list" xlink:href="#i-list"></use></svg>The short version</h2>
+    <ul>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>We ask for <strong>camera</strong>, <strong>approximate location</strong>, and <strong>notification</strong> access, and we read your <strong>installed application list</strong> and <strong>device details</strong> as part of our risk assessment.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>Your KYC details, identity documents and face photos are <strong>uploaded over an encrypted connection to c5yaar.com</strong> and used only to verify you and set your credit limit.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>We never sell your data and never share it with third parties for their own marketing or profit.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check-circle" xlink:href="#i-check-circle"></use></svg><span>You can access, correct, or delete your data — and you can stop collection at any time by uninstalling the app.</span></li>
+    </ul>
+  </div>
+
+  <details class="toc">
+    <summary><svg class="ic" aria-hidden="true"><use href="#i-file" xlink:href="#i-file"></use></svg>Contents</summary>
+    <ol>
+      <li><a href="#s1">Who we are</a></li>
+      <li><a href="#s2">Information we collect</a></li>
+      <li><a href="#s3">Permissions we request</a></li>
+      <li><a href="#s4">How we use your information</a></li>
+      <li><a href="#s5">How your data is stored and protected</a></li>
+      <li><a href="#s6">Sharing and disclosure</a></li>
+      <li><a href="#s7">Third-party services</a></li>
+      <li><a href="#s8">Cookies and tracking technologies</a></li>
+      <li><a href="#s9">International data transfers</a></li>
+      <li><a href="#s10">How long we keep your data</a></li>
+      <li><a href="#s11">Your rights and data deletion</a></li>
+      <li><a href="#s12">Your rights in India (DPDP Act)</a></li>
+      <li><a href="#s13">Your California privacy rights (CCPA/CPRA)</a></li>
+      <li><a href="#s14">Children</a></li>
+      <li><a href="#s15">Security and data breach notification</a></li>
+      <li><a href="#s16">Changes to this policy</a></li>
+      <li><a href="#s17">Your consent</a></li>
+      <li><a href="#s18">Contact us</a></li>
+    </ol>
+  </details>
+
+  <section class="sec" id="s1">
+    <h2>Who we are</h2>
+    <p>
+      This privacy policy applies to the <strong>Chatura Rupee: Credit Line App</strong> for mobile devices,
+      together with any related services operated by <strong>Ram singh</strong> (collectively, the
+      &ldquo;Application&rdquo;). Ram singh is referred to in this policy as the &ldquo;Service Provider&rdquo;,
+      and also as &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;.
+    </p>
+    <p>
+      The Application provides a digital credit line to users in India. To do this, we need to collect and
+      verify certain information about you. This policy tells you exactly what that information is.
+    </p>
+    <p>
+      By downloading, registering with, or using the Application, you agree to the collection and use of
+      information in accordance with this policy. If you do not agree, please do not use the Application.
+    </p>
+  </section>
+
+  <section class="sec" id="s2">
+    <h2>Information we collect</h2>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-user" xlink:href="#i-user"></use></svg>Information you give us</h3>
+    <p>When you register and complete your KYC, you provide the following:</p>
+    <ul class="tags">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-phone" xlink:href="#i-phone"></use></svg><span><strong>Account details</strong> — your mobile phone number and the verification code used to sign in.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-user" xlink:href="#i-user"></use></svg><span><strong>Personal and financial profile</strong> — education level, type of work, years of work experience, profession, job level, monthly income, living arrangement, marital status, number of children, and religious belief.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-id" xlink:href="#i-id"></use></svg><span><strong>Identity information</strong> — your full name, your PAN card number, and a photograph of your PAN card.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-camera" xlink:href="#i-camera"></use></svg><span><strong>Face verification</strong> — a live photograph taken through the in-app camera, used to confirm that you are the person on the identity document.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-user-check" xlink:href="#i-user-check"></use></svg><span><strong>References you choose</strong> — the name and phone number of up to two contacts that <em>you</em> select from your address book using the system contact picker. We do not read or upload your address book; only the contacts you deliberately pick are sent to us.</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-card" xlink:href="#i-card"></use></svg><span><strong>Bank account details</strong> — the bank card or account number used to disburse a loan and to collect repayment.</span></li>
+    </ul>
+    <p>
+      You may also contact us through the app (for example, through the <em>Contact Us</em> form), in which case
+      we receive the content of your message and any contact details you choose to include.
+    </p>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-grid" xlink:href="#i-grid"></use></svg>Installed applications</h3>
+    <p>
+      To assess risk and detect fraudulent behaviour, the Application reads the list of applications installed
+      on your device. For each application this includes the app name, package name, version name and code,
+      first installation time, last update time, and whether it is a system application. This information is
+      used as part of our automated risk assessment and is <strong>not</strong> used to identify you personally
+      or to contact you.
+    </p>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-mail" xlink:href="#i-mail"></use></svg>Financial SMS messages</h3>
+    <p>
+      With your permission, the Application reads SMS messages stored on your device to support our credit
+      assessment. <strong>We read and upload only messages that are related to your finances</strong> — for
+      example, messages from banks and financial institutions about transactions, balances, loans, credit
+      cards, payments, EMIs and other banking activity. We do not read, collect or upload your personal
+      messages or any other non-financial SMS.
+    </p>
+    <p>
+      The financial SMS we collect are used for risk assessment and for analysing your financial status as
+      part of our credit scoring and credit-limit modelling. <strong>All data we upload is encrypted</strong>
+      before it leaves your device and while in transit to our server. Once the credit modelling for your
+      application is complete, the original SMS data is deleted, and it is <strong>never sold, rented or
+      shared with any third party for their own purposes</strong>.
+    </p>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-phone" xlink:href="#i-phone"></use></svg>Device and technical information</h3>
+    <p>We automatically collect technical details about the device you use, including:</p>
+    <ul>
+      <li>Device model, brand and device name, operating system version and API level;</li>
+      <li>Screen size, available storage and battery status;</li>
+      <li>Device and advertising identifiers, including the Android ID, your Google advertising ID, the Adjust identifier, and the Firebase application instance ID;</li>
+      <li>Network information, such as the connection type (Wi-Fi, 2G, 3G, 4G, 5G) and the Wi-Fi IP address;</li>
+      <li>The source from which you installed the Application (install referrer);</li>
+      <li>Your device's Internet Protocol (IP) address.</li>
+    </ul>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-pin" xlink:href="#i-pin"></use></svg>Location information</h3>
+    <p>
+      With your permission, the Application collects your device's <strong>approximate location</strong>
+      (coarse location, derived from the network provider). We use it for location-based features, for fraud
+      prevention, and to improve the Application and our services. We do not collect continuous background
+      location tracking.
+    </p>
+    <ul>
+      <li><strong>Geolocation services</strong> — location data may be used to provide location-based features or content.</li>
+      <li><strong>Analytics and improvements</strong> — aggregated location data may help us understand usage patterns and improve performance.</li>
+      <li><strong>Service providers</strong> — location data may be processed by service providers acting on our behalf, subject to this policy and applicable law.</li>
+    </ul>
+
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-list" xlink:href="#i-list"></use></svg>How you use the Application</h3>
+    <p>
+      We collect information about your activity in the Application, including the pages and screens you visit,
+      the time and date of your visit, the time spent on those pages, the time spent in the Application, and
+      your credit, loan and repayment records, including repayment reminders you create.
+    </p>
+  </section>
+
+  <section class="sec" id="s3">
+    <h2>Permissions we request</h2>
+    <p>
+      The Application asks for the following permissions. Each is optional in the sense that you may refuse it —
+      but the related feature, or your ability to complete KYC, may not work without it.
+    </p>
+    <table class="facts">
+      <tr>
+        <th>Camera</th>
+        <td>To photograph your PAN card and to take the live photograph used for face verification.</td>
+      </tr>
+      <tr>
+        <th>Approximate location</th>
+        <td>To record your general location at the time of your application, for fraud prevention and risk assessment.</td>
+      </tr>
+      <tr>
+        <th>Notifications</th>
+        <td>To send you repayment reminders, due date alerts and other service messages (Android 13 and above).</td>
+      </tr>
+      <tr>
+        <th>Installed applications</th>
+        <td>The Application queries the applications installed on your device for the risk assessment described in section&nbsp;2. This does not require a runtime prompt on all versions of Android.</td>
+      </tr>
+      <tr>
+        <th>SMS</th>
+        <td>To read and upload only financial SMS messages needed for credit risk assessment and financial status analysis, as described in section&nbsp;2.</td>
+      </tr>
+      <tr>
+        <th>Network and Wi-Fi state</th>
+        <td>To detect whether you are online and to deliver requests reliably.</td>
+      </tr>
+    </table>
+    <div class="callout">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-info" xlink:href="#i-info"></use></svg>
+        <span>We do <b>not</b> read your call history, and we do <b>not</b> read your address book as a whole. We read and upload only SMS messages related to your finances, as described in section&nbsp;2. Contact details are only received for the specific contacts you choose to submit.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s4">
+    <h2>How we use your information</h2>
+    <ul>
+      <li>To verify your identity and assess your eligibility for a credit line;</li>
+      <li>To calculate your credit limit using our risk assessment model;</li>
+      <li>To disburse loans to you and to process your repayments;</li>
+      <li>To prevent, detect and investigate fraud, and to protect the security of our services;</li>
+      <li>To provide customer support and respond to your enquiries and requests;</li>
+      <li>To send you important information and required notices about your account, and — where permitted by law — marketing communications;</li>
+      <li>To comply with our legal and regulatory obligations, including record-keeping requirements;</li>
+      <li>To understand how the Application is used and to improve its performance and features.</li>
+    </ul>
+    <p>
+      Where we rely on your consent to process your information, you may withdraw that consent at any time
+      by contacting us. Withdrawing consent does not affect processing carried out before the withdrawal.
+    </p>
+  </section>
+
+  <section class="sec" id="s5">
+    <h2>How your data is stored and protected</h2>
+    <p>
+      When you use the Application, the information you submit — including your KYC profile, your identity
+      documents, your face photograph and the financial SMS data described in section&nbsp;2 — is
+      <strong>encrypted and uploaded to our own server at
+      <a href="https://c5yaar.com" target="_blank" rel="noopener noreferrer">https://c5yaar.com</a></strong>.
+      Request content is encrypted with AES before it leaves your device, and all communication between the
+      Application and our server is carried over an encrypted HTTPS (TLS) connection.
+    </p>
+    <p>
+      Your data is used to calculate your credit limit and to provide the services described in this policy.
+      It is <strong>not sold, rented, or traded</strong>, and it is not shared with third parties for their own
+      purposes. Access to personal data inside our organisation is limited to staff and systems that need it to
+      perform the risk assessment, verification and servicing of your account.
+    </p>
+    <div class="callout">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-db" xlink:href="#i-db"></use></svg>
+        <span>Data you submit for your assessment is processed to produce a risk score. <b>Raw documents and data are not kept longer than necessary</b> for the purposes described in this policy, our legal obligations, and our records requirements under section&nbsp;10.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s6">
+    <h2>Sharing and disclosure</h2>
+    <p>
+      <strong>We do not share your personal data with third parties for their own purposes, and we do not sell it.</strong>
+      We may disclose information only in the following limited circumstances:
+    </p>
+    <ul>
+      <li><strong>Service providers acting for us</strong> — companies that perform services on our behalf (such as hosting, analytics and crash reporting). They may use your information only to provide that service to us, they do not have an independent right to use it, and they are bound by confidentiality obligations and this policy.</li>
+      <li><strong>Legal requirements</strong> — when required by law, such as to comply with a subpoena, a court order, or a lawful request from a government or regulatory authority.</li>
+      <li><strong>Protecting rights and safety</strong> — where we believe in good faith that disclosure is necessary to protect our rights, to protect your safety or the safety of others, to investigate fraud, or to respond to a government request.</li>
+      <li><strong>Business transfer</strong> — if our business is transferred or merged, your information may be transferred as part of that transaction, subject to this policy.</li>
+    </ul>
+    <p>
+      Only aggregated, anonymised data may be used by us for reporting and service improvement, as it no longer
+      identifies you.
+    </p>
+  </section>
+
+  <section class="sec" id="s7">
+    <h2>Third-party services</h2>
+    <p>
+      The Application uses third-party services that have their own privacy policies about how they handle data.
+      These services support functionality, analytics and service delivery, and they may receive limited technical
+      or usage data (such as device identifiers, app events and crash reports) — but <strong>not your KYC
+      information, identity documents, face photographs, contact details, or financial SMS data</strong>.
+    </p>
+    <ul>
+      <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+      <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+      <li><a href="https://www.adjust.com/terms/privacy-policy" target="_blank" rel="noopener noreferrer">Adjust</a></li>
+    </ul>
+    <p>
+      We encourage you to read the privacy policies of these services. Where required by applicable law, we will
+      obtain your consent before using non-essential tracking technologies.
+    </p>
+  </section>
+
+  <section class="sec" id="s8">
+    <h2>Cookies and tracking technologies</h2>
+    <p>
+      The Application or its third-party SDKs may use cookies, SDKs, pixels and similar technologies to support
+      functionality, analytics, or service delivery. Where required by applicable law, we will obtain your consent
+      before using non-essential tracking technologies.
+    </p>
+  </section>
+
+  <section class="sec" id="s9">
+    <h2>International data transfers</h2>
+    <p>
+      We, or our third-party service providers, may transfer personal data to countries outside your country of
+      residence, including outside the European Economic Area (EEA). Where applicable law requires safeguards for
+      international transfers, we will use appropriate mechanisms, including:
+    </p>
+    <ul>
+      <li>Standard Contractual Clauses (SCCs) approved by the European Commission;</li>
+      <li>Adequacy decisions or other legally recognised transfer mechanisms;</li>
+      <li>Your consent, where required and legally permitted.</li>
+    </ul>
+    <p>
+      Data protection laws in other countries may differ from those in your jurisdiction. Where required by law,
+      we will apply appropriate safeguards and obtain any consent required for the transfer.
+    </p>
+  </section>
+
+  <section class="sec" id="s10">
+    <h2>How long we keep your data</h2>
+    <p>We retain personal data only as long as it is needed for the purposes described in this policy:</p>
+    <ul>
+      <li><strong>Information you provide</strong> — retained for the duration of your use of the Application, plus 12 months afterwards, unless a longer period is required by law.</li>
+      <li><strong>Information collected automatically</strong> — retained for up to 24 months from collection, unless a longer period is required for legal compliance.</li>
+      <li><strong>Financial SMS data</strong> — the original SMS content is deleted once the credit modelling for your application is complete.</li>
+      <li><strong>Aggregated and anonymised data</strong> — retained indefinitely, because it no longer identifies you.</li>
+      <li><strong>Records required for legal compliance</strong> — retained for as long as applicable law requires.</li>
+    </ul>
+    <p>
+      You may ask us to delete your personal data at any time, subject to any legal obligation we have to retain
+      it. Please note that some of the information you provided may be required for the Application to function
+      properly.
+    </p>
+  </section>
+
+  <section class="sec" id="s11">
+    <h2>Your rights and data deletion</h2>
+    <p>You may ask us to:</p>
+    <ul>
+      <li>Give you access to the personal data we hold about you;</li>
+      <li>Correct any personal data that is inaccurate or incomplete;</li>
+      <li>Delete your personal data or your account;</li>
+      <li>Withdraw consent, where our processing is based on consent.</li>
+    </ul>
+    <p>
+      To exercise any of these rights, contact us at
+      <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a>.
+      You can also request deletion of your account and its data from the <em>Settings</em> section of the
+      Application. Once we have verified your identity, we will delete your personal data from our systems,
+      except where retention is required for legal compliance or legitimate business purposes, and we will
+      process your request within the timeframes required by applicable law.
+    </p>
+    <div class="callout">
+      <div class="hl">
+        <svg class="ic" aria-hidden="true"><use href="#i-refresh" xlink:href="#i-refresh"></use></svg>
+        <span>You can stop further collection of information from your device by uninstalling the Application. Uninstalling stops collection from your device, but it does <b>not</b> automatically delete information that has already been transmitted to us. To have that deleted, contact us at the email address above.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s12">
+    <h2>Your rights in India (DPDP Act)</h2>
+    <p>
+      If you are in India, you have rights under applicable Indian data protection law, including the right to
+      access a summary of the personal data we process about you, the right to correction and erasure, the right
+      to nominate another person to exercise your rights in the event of death or incapacity, and the right to a
+      readily available grievance redressal mechanism. You may exercise these rights, or raise a grievance, by
+      contacting our Grievance Officer:
+    </p>
+    <ul>
+      <li><strong>Grievance Officer:</strong> Ram singh</li>
+      <li><strong>Email:</strong> <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a></li>
+    </ul>
+    <p>
+      You always have the right to withdraw your consent to processing. If you withdraw consent, we may be unable
+      to continue providing the credit line or related services to you.
+    </p>
+  </section>
+
+  <section class="sec" id="s13">
+    <h2>Your California privacy rights (CCPA/CPRA)</h2>
+    <p>
+      If you are a California resident, you have the right to know what personal information is collected, the
+      right to delete personal information, the right to opt out of the sale or sharing of personal information,
+      and the right to non-discrimination for exercising these rights. We do not sell personal information.
+      To exercise your CCPA/CPRA rights, contact us at
+      <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a>.
+    </p>
+  </section>
+
+  <section class="sec" id="s14">
+    <h2>Children</h2>
+    <p>
+      The Application is not intended for children under 16 years of age, or such higher age as required by
+      applicable law. We do not knowingly solicit data from children or market the Application to them, and where
+      parental or guardian consent is required under applicable law, the Application is not intended for use
+      without that consent.
+    </p>
+    <p>
+      If we discover that a child has provided us with personal information, we will delete it from our servers
+      immediately. If you are a parent or guardian and you are aware that your child has provided us with personal
+      information, please contact us at
+      <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a> so that we can take the necessary steps.
+    </p>
+  </section>
+
+  <section class="sec" id="s15">
+    <h2>Security and data breach notification</h2>
+    <p>
+      We are concerned about safeguarding the confidentiality of your information, and we provide physical,
+      electronic and procedural safeguards to protect the information we process and maintain. Information is
+      encrypted in transit to our server over HTTPS.
+    </p>
+    <p>
+      No method of transmission over the internet or method of electronic storage is completely secure. If a data
+      breach occurs that affects your personal data, we will notify you and the relevant authorities in accordance
+      with applicable legal requirements, including, where required, information about the nature of the breach
+      and the steps being taken to address it.
+    </p>
+  </section>
+
+  <section class="sec" id="s16">
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. We will notify you of material changes by posting the
+      updated Privacy Policy with a new effective date. Where required by law, we will seek your consent to
+      material changes before they take effect.
+    </p>
+    <p>
+      Previous versions of this Privacy Policy will be maintained and made available on request by contacting us
+      at <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a>.
+    </p>
+  </section>
+
+  <section class="sec" id="s17">
+    <h2>Your consent</h2>
+    <p>
+      Where processing is based on consent, you provide that consent by affirmatively opting in to the relevant
+      feature or action — for example, by granting a permission or submitting your KYC information. You may
+      withdraw consent at any time without affecting processing carried out before the withdrawal. Processing
+      based on other lawful bases is carried out as described above.
+    </p>
+  </section>
+
+  <section class="sec" id="s18">
+    <h2>Contact us</h2>
+    <p>
+      If you have any questions about this policy, about privacy while using the Application, or about our data
+      practices, please contact the Service Provider:
+    </p>
+    <ul>
+      <li><strong>Service Provider:</strong> Ram singh — Chatura Rupee: Credit Line App</li>
+      <li><strong>Email:</strong> <a href="mailto:rahulsingh739910@gmail.com">rahulsingh739910@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <p class="foot">
+    This privacy policy applies to the Chatura Rupee: Credit Line App.<br>
+    <span class="eff">Effective as of 28 September 2026</span>
+  </p>
+
+</main>
+
+</body>
+</html>
