@@ -209,8 +209,8 @@
     display:inline-block;margin-top:8px;font-weight:600;color:var(--ink-2);
   }
 
-  /* 外部网址/邮箱仅展示，不可点击 */
-  a[href^="http"],a[href^="mailto"]{pointer-events:none;cursor:default;}
+  /* Own site URL and email are display-only; third-party service links stay clickable. */
+  a[href*="c5yaar.com"],a[href^="mailto"]{pointer-events:none;cursor:default;}
 
   @media (min-width:560px){
     .doc-head{padding:24px;}
